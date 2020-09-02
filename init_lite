@@ -1,0 +1,56 @@
+LITE_PATH=`pwd`
+export db_port=$1
+
+function inner() {
+if [ ! $db_port ];then
+db_port=`ps -ef|grep \`pidof mysqld|awk '{print $1}'\`|grep -v grep|awk -Fport= '{print $2}'`
+#echo "export DB_PORT=${db_port}" > ${LITE_PATH}/INIT_PORT
+fi
+
+echo '#######################'
+mysql_exists=`ps -ef|grep -w mysqld | grep -w  ${db_port}|wc -l`
+
+if [ $mysql_exists = 1 ];then
+  echo "port init succeed..." 
+  #echo "export DB_PORT=${db_port}" > ${LITE_PATH}/INIT_PORT
+  #echo ${LITE_PATH}
+else
+  echo "port init failed...."
+  #echo "invalid_port" > ${LITE_PATH}/INIT_PORT
+fi
+}
+
+function decrypt_passwd
+{
+ tmp_passwd=$1
+ dec_passwd=`echo $tmp_passwd|base64 -d`
+}
+
+
+function outter() {
+#   echo "before"
+    eval $1
+#   echo "after"
+    cat ${LITE_PATH}/welcome.lst
+
+
+sec_password=`cat ./INIT_PWD`
+dec_passwd=''
+decrypt_passwd $sec_password
+
+
+
+export DB_PORT=$db_port
+export MYSQL='/usr/local/mysql/bin/mysql'
+export MYSQL_ADMIN='/usr/local/mysql/bin/mysqladmin'
+export MYSQL_CMD="$MYSQL -udba_admin -p${dec_passwd} -h127.0.0.1 -P${DB_PORT} "
+export MYSQL_CMDE="$MYSQL -udba_admin -p${dec_passwd} -h127.0.0.1 -P${DB_PORT} -e "
+export MYSQL_CMDNE="$MYSQL -udba_admin -p${dec_passwd} -h127.0.0.1 -P${DB_PORT} -Ne "
+export MYSQLADMIN_CMD="$MYSQL_ADMIN -udba_admin -p${dec_passwd} -h127.0.0.1 -P${DB_PORT} "
+#echo $DATA_DIR
+#echo $0 $1 $#
+
+
+}
+
+outter inner 
