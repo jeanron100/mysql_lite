@@ -16,7 +16,7 @@
 
 # 目前的思考和所得有哪些
 
-目前这个初版的框架已经基本整理出来了，大体包括一些的一些内容。
+目前这个初版的框架已经基本整理出来了，大体包括如下的一些内容。
 
 ![Alt text](https://p3-tt.byteimg.com/origin/pgc-image/S9MHmKv13cor2j?from=pc)
 
@@ -43,5 +43,17 @@
 | 脚本名称    | 脚本说明   | 相关参数 | 脚本实例 |  
 | -------- | ------ | ---- | ------- |  
 | showdb | 得到数据库的基本信息，数据库列表 | 无   | showdb    |
-| showfs | 得到数据库的文件目录统计 | 无   | showfs    | 
- 
+| showproc | show processlist的改进版，可以对线程进行多维度统计 | 无   | showproc    |
+| showvar | 得到数据库配置参数列表 | 参数关键字   | showvar binlog    | 
+| showfs | 得到数据库的文件目录统计 | 无   | showfs    |  
+| showbinlog | binlog的列表，包括文件系统层的时间戳 | 无   | showbinlog    | 
+| showbuffer | 得到数据库缓存的配置信息 | 无   | showbuffer    | 
+| showerror | 数据库错误日志近1000行记录，会按照less模式显示 | 无   | showerror    | 
+| showlock | 得到数据库相关锁的信息 | 无   | showlock    | 
+| showusers | 得到数据库中的用户信息，包括加密后的密码串 | 无   |  showusers    | 
+| showgrants | 得到指定用户的授权语句 | 用户名，主机名   |  showgrants test_user 127.0.0.1    | 
+| showgtid | 得到数据库GTID的基本信息，包括GTID配置和当前GTID值 | 无   | showgtid    | 
+| showstatus | 得到数据库运行状态的基本信息统计，如QPS,TPS等 | 无   | showstatus    | 
+| showstatus2 | 简化版的showstatus命令输出 | 无   | showstatus2    | 
+
+
