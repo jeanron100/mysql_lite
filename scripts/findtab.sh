@@ -1,0 +1,1 @@
+$MYSQL_CMDE "select TABLE_SCHEMA,TABLE_NAME,TABLE_TYPE,ENGINE,TABLE_ROWS,AUTO_INCREMENT,CREATE_TIME,TABLE_COMMENT from information_schema.tables where table_schema not in ('sys','information_schema','performance_schema','mysql') and TABLE_SCHEMA='$1' and table_name like '%$2%';" 2>/dev/null
