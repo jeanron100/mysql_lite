@@ -55,7 +55,6 @@
 | showgtid | 得到数据库GTID的基本信息，包括GTID配置和当前GTID值 | 无   | showgtid    | 
 | showstatus | 得到数据库运行状态的基本信息统计，如QPS,TPS等 | 无   | showstatus    | 
 | showstatus2 | 简化版的showstatus命令输出 | 无   | showstatus2    | 
-
 | finddict | 查找数据字典名称 | 数据字典关键字   | finddict lock    | 
 | findtabs | 按照表名关键字模糊查找 | 表名关键字   | findtab test    | 
 | findtab | 查找库名下相关的表   | 精确库名| findtab test   | 
