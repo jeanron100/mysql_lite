@@ -56,4 +56,9 @@
 | showstatus | 得到数据库运行状态的基本信息统计，如QPS,TPS等 | 无   | showstatus    | 
 | showstatus2 | 简化版的showstatus命令输出 | 无   | showstatus2    | 
 
+| finddict | 查找数据字典名称 | 数据字典关键字   | finddict lock    | 
+| findtabs | 按照表名关键字模糊查找 | 表名关键字   | findtab test    | 
+| findtab | 查找库名下相关的表   | 精确库名| findtab test   | 
+| findtab | 按照库名，表名关键字查找相关的表 | 库名+表名关键字   | findtab test_db testx   | 
+| showtab | 得到表的基本信息，包括create table语句和desc的结果 | 库名，精确表名   | showtab test_db test_table   | 
 
