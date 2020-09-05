@@ -61,3 +61,6 @@
 | findtab | 按照库名，表名关键字查找相关的表 | 库名+表名关键字   | findtab test_db testx   | 
 | showtab | 得到表的基本信息，包括create table语句和desc的结果 | 库名，精确表名   | showtab test_db test_table   | 
 
+# 反馈交流
+如果有相关问题，可以提交issue或者pull request
+也可以在QQ群中沟通交流，QQ 群号：763628645
